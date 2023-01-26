@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen flex items-center p-8">
     <div class="flex gap-8 w-screen" v-if="session">
-      <Chat class="w-1/2" />
+      <Chat class="w-1/2" :session="session" />
       <Account class="w-1/2" :session="session" />
     </div>
     <Auth v-else />
@@ -25,5 +25,6 @@ onMounted(() => {
   supabase.auth.onAuthStateChange((_, _session) => {
     session.value = _session
   })
+  console.log(session.value)
 })
 </script>

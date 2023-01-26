@@ -83,8 +83,9 @@ async function updateProfile() {
         }
 
         let { error } = await supabase.from('profiles').upsert(updates)
-        alert('Profile updated!')
+        
         if (error) throw error
+        alert('Profile updated!')
     } catch (error) {
         alert(error.message)
     } finally {
